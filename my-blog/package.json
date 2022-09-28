@@ -11,7 +11,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "whatwg-fetch": "^3.6.2"
   },
   "scripts": {
     "build:css": "postcss src/styles/index.css -o src/styles/tailwind.css",

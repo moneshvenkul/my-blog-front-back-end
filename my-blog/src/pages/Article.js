@@ -1,4 +1,5 @@
-import React from "react";
+import "whatwg-fetch";
+import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import articles from "./article-content";
 import Articles from "../components/Articles";
@@ -6,6 +7,19 @@ import Articles from "../components/Articles";
 const Article = () => {
     const name = useParams();
     const article = articles.find((article) => article.name === name.name);
+    
+    const [articleInfo, setArticleInfo] = useState({ comments: [] });
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await fetch(`http://localhost:8000/api/articles/${name.name}`);
+            const body = await result.json();
+            setArticleInfo(body);
+        };
+        fetchData();
+    }, [name.name]);
+    
+    
     if(!article) return <h1>Article does not exist</h1>;
     const otherArticles = articles.filter((article) => article.name !== name.name);
 
