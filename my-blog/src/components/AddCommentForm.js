@@ -1,11 +1,11 @@
 import React from "react";
 
-export const AddCommentForm = () => {
+export const AddCommentForm = ({articleName, setArticleInfo}) => {
     const [username, setUsername] = React.useState("");
     const [commentText, setCommentText] = React.useState("");
 
-    const addComment = async ({articleName, setArticleInfo}) => {
-        const result = await fetch(`/api/articles/${articleName.name}/add-comment`, {
+    const addComment = async () => {
+        const result = await fetch(`/api/articles/${articleName.name}/add-comments`, {
             method: "post",
             body: JSON.stringify({ username, text: commentText }),
             headers: {
