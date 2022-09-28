@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import articles from "./article-content";
 import Articles from "../components/Articles";
+import { CommentsList } from "../components/CommentsList";
 
 const Article = () => {
     const name = useParams();
@@ -34,6 +35,7 @@ const Article = () => {
             {paragraph}
         </p>
       )}
+      <CommentsList comments={articleInfo.comments} />
 
       <h1 className="sm:text-2x text-xl font-bold mt-4 mb-4 text-gray-900">
         Other Articles:
