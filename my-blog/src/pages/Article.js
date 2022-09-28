@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import articles from "./article-content";
 import Articles from "../components/Articles";
 import { CommentsList } from "../components/CommentsList";
+import { AddCommentForm } from "../components/AddCommentForm";
 
 const Article = () => {
     const name = useParams();
@@ -36,6 +37,8 @@ const Article = () => {
         </p>
       )}
       <CommentsList comments={articleInfo.comments} />
+      <AddCommentForm articleName={name} setArticleInfo={setArticleInfo} />
+
 
       <h1 className="sm:text-2x text-xl font-bold mt-4 mb-4 text-gray-900">
         Other Articles:
